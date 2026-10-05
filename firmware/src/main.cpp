@@ -248,6 +248,7 @@ static void setDuty(uint8_t duty)
 // =============================================================================
 static void runCalibration()
 {
+    setDuty(0);  // motor off while in menu (this function blocks)
     Serial.println(F("--- CAL MODE ---"));
     Serial.println(F("Sweep pedal through full range.  Type SAVE or CANCEL."));
 
@@ -321,6 +322,7 @@ static void runCalibration()
 // =============================================================================
 static void runDZ()
 {
+    setDuty(0);  // motor off while in menu (this function blocks)
     // Drain any trailing CR/LF left in the serial buffer from the "DZ\r\n"
     // command that invoked us.  At 9600 baud a byte arrives in ~1 ms; 5 ms is
     // enough for the paired byte to land before we peek at the buffer.
