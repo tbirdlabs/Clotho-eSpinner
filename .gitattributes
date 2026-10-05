@@ -1,0 +1,5 @@
+# CAD files: store byte-for-byte (no line-ending conversion, no text diffs)
+*.step binary
+*.stp  binary
+*.3mf  binary
+*.f3d  binary
