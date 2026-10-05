@@ -65,6 +65,11 @@ static void printStatus();
 // =============================================================================
 void setup()
 {
+    // Drive the PWM pin LOW immediately so the BLD-510B's SV input isn't left
+    // floating during the USB wait below.  OUTPUT is also required for the
+    // Timer1 hardware override to drive the pin later.
+    pinMode(PIN_PWM, OUTPUT);
+
     Serial.begin(9600);
 
     // ATmega32U4 uses USB-CDC for Serial; wait up to 2 s for host enumeration.
@@ -73,8 +78,6 @@ void setup()
     while (!Serial && (millis() - t0 < 2000)) { /* wait */ }
 
     pinMode(PIN_POT, INPUT);
-    // PIN_PWM direction must be OUTPUT so Timer1 hardware override drives it.
-    pinMode(PIN_PWM, OUTPUT);
 
     loadSettings();
     setupTimer1PWM();
