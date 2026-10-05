@@ -62,6 +62,7 @@ static uint16_t calMin   = 0;
 static uint16_t calMax   = 1023;
 static uint8_t  dzBottom = 5;   // heel-end dead zone, percent of travel
 static uint8_t  dzTop    = 0;   // toe-end  dead zone, percent of travel
+static bool     armed    = false;  // motor enabled only after pedal seen at rest
 
 // ── Forward declarations ─────────────────────────────────────────────────────
 static void loadSettings();
@@ -144,6 +145,23 @@ void loop()
                           (long)dzBotThreshold, (long)dzTopThreshold,
                           0L, 255L);
         duty = (uint8_t)constrain(mapped, 0, 255);
+    }
+
+    // ── Safety interlock ─────────────────────────────────────────────────────
+    // After power-up or leaving a menu, hold the motor off until the pedal is
+    // seen at rest (inside the heel dead zone), so it never starts on its own.
+    static bool warned = false;
+    if (!armed) {
+        if (duty == 0) {
+            armed  = true;
+            warned = false;
+        } else {
+            duty = 0;
+            if (!warned) {
+                Serial.println(F("Pedal not at rest — release it to enable the motor."));
+                warned = true;
+            }
+        }
     }
     setDuty(duty);
 }
@@ -262,7 +280,8 @@ static void setDuty(uint8_t duty)
 // =============================================================================
 static void runCalibration()
 {
-    setDuty(0);  // motor off while in menu (this function blocks)
+    setDuty(0);      // motor off while in menu (this function blocks)
+    armed = false;   // require pedal at rest before the motor runs again
     Serial.println(F("--- CAL MODE ---"));
     Serial.println(F("Sweep pedal through full range.  Type SAVE or CANCEL."));
 
@@ -338,7 +357,8 @@ static void runCalibration()
 // =============================================================================
 static void runDZ()
 {
-    setDuty(0);  // motor off while in menu (this function blocks)
+    setDuty(0);      // motor off while in menu (this function blocks)
+    armed = false;   // require pedal at rest before the motor runs again
     // Drain any trailing CR/LF left in the serial buffer from the "DZ\r\n"
     // command that invoked us.  At 9600 baud a byte arrives in ~1 ms; 5 ms is
     // enough for the paired byte to land before we peek at the buffer.

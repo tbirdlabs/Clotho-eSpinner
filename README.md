@@ -73,6 +73,10 @@ not case-sensitive.
 
 Run `CAL` once after flashing. Until you do, the firmware uses the full 0–1023 ADC range.
 
+After power-up, and after leaving `CAL` or `DZ`, the motor stays off until the pedal
+returns to rest (inside the heel dead zone). If the pedal is pressed at that point, the
+console prints a reminder to release it.
+
 ## License
 
 - **Firmware** (`firmware/`): MIT. See [LICENSE](LICENSE).
