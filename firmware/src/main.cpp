@@ -366,6 +366,19 @@ static void runDZ()
         }
     };
 
+    // ── Parse a dead zone percentage ─────────────────────────────────────────
+    // Returns 0–50 for a whole number in range, or -1 for anything else
+    // (non-digits, too many digits, or out of range).  toInt() alone would
+    // silently turn "x" into 0 and "10abc" into 10.
+    auto parsePercent = [](const String &s) -> long {
+        if (s.length() == 0 || s.length() > 2) return -1;
+        for (unsigned int i = 0; i < s.length(); i++) {
+            if (!isDigit(s[i])) return -1;
+        }
+        long v = s.toInt();
+        return (v <= 50) ? v : -1;
+    };
+
     // ── Bottom dead zone ─────────────────────────────────────────────────────
     Serial.print(F("Enter bottom (heel) dead zone % [0-50], current="));
     Serial.print(dzBottom);
@@ -376,9 +389,9 @@ static void runDZ()
         Serial.println(F("DZ cancelled."));
         return;
     }
-    long newBot = line.toInt();
-    if (newBot < 0 || newBot > 50) {
-        Serial.println(F("ERROR: value out of range 0–50.  DZ cancelled."));
+    long newBot = parsePercent(line);
+    if (newBot < 0) {
+        Serial.println(F("ERROR: enter a whole number 0–50.  DZ cancelled."));
         return;
     }
 
@@ -392,9 +405,9 @@ static void runDZ()
         Serial.println(F("DZ cancelled."));
         return;
     }
-    long newTop = line.toInt();
-    if (newTop < 0 || newTop > 50) {
-        Serial.println(F("ERROR: value out of range 0–50.  DZ cancelled."));
+    long newTop = parsePercent(line);
+    if (newTop < 0) {
+        Serial.println(F("ERROR: enter a whole number 0–50.  DZ cancelled."));
         return;
     }
 
