@@ -4,14 +4,35 @@
 Printable parts, build notes and photos are on Printables:
 <https://www.printables.com/model/1779646-clotho-espinner>
 
-This repo holds the foot pedal firmware and the wiring diagram:
+This repo holds the CAD files, the foot pedal firmware and the wiring diagram:
 
+- `cad/`: STEP model and 3MF print files
 - `firmware/`: PlatformIO project for the foot pedal
 - `docs/`: wiring diagram
 
 The pedal has a 10K potentiometer. The firmware reads it and drives a BLD-510B brushless
 motor controller with a ~1 kHz PWM speed signal. It has a calibration routine and
 adjustable dead zones at the heel and toe ends, and saves both to EEPROM.
+
+## CAD
+
+- `cad/clotho.step`: the full assembly. Open it in any CAD program to modify or remix parts.
+- `cad/*.3mf`: PrusaSlicer projects, one per assembly, ready to slice:
+
+  | File | Part |
+  |------|------|
+  | `base.3mf` | Base |
+  | `front-riser-assembly.3mf` | Front riser |
+  | `rear-riser-assembly.3mf` | Rear riser |
+  | `flyer-assembly.3mf` | Flyer |
+  | `bobbin-assembly.3mf` | Bobbin |
+  | `spreader-assembly.3mf` | Spreader |
+  | `poly-belt-form.3mf` | Poly belt form |
+  | `foot-pedal.3mf` | Foot pedal |
+
+The 3MFs are set up for PETG on a Prusa Core One (0.4 mm nozzle, 0.20 mm STRUCTURAL).
+On another printer, open them and switch to your own printer and filament profiles.
+Build notes and photos are on the Printables page linked above.
 
 ## Hardware
 
@@ -55,5 +76,5 @@ Run `CAL` once after flashing. Until you do, the firmware uses the full 0–1023
 ## License
 
 - **Firmware** (`firmware/`): MIT. See [LICENSE](LICENSE).
-- **Wiring diagram** (`docs/`), CAD and other documentation: CC BY-SA 4.0, the same as
+- **CAD** (`cad/`), **wiring diagram** (`docs/`) and other documentation: CC BY-SA 4.0, the same as
   the Printables listing. See [LICENSE-CC-BY-SA-4.0.txt](LICENSE-CC-BY-SA-4.0.txt).
