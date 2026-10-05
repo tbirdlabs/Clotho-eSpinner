@@ -52,6 +52,11 @@ static const uint16_t PWM_TOP = 1999;
 // pedal into an on/off switch.
 static const uint16_t CAL_MIN_RANGE = 100;
 
+// ── Serial input ─────────────────────────────────────────────────────────────
+// Longest line kept from the serial console.  Extra characters are dropped so
+// a stream of text with no newline can't grow a String until RAM runs out.
+static const uint8_t INPUT_MAX_LEN = 16;
+
 // ── Runtime state ────────────────────────────────────────────────────────────
 static uint16_t calMin   = 0;
 static uint16_t calMax   = 1023;
@@ -117,7 +122,7 @@ void loop()
                 }
             }
             cmdBuf = "";
-        } else {
+        } else if (cmdBuf.length() < INPUT_MAX_LEN) {
             cmdBuf += c;
         }
     }
@@ -316,7 +321,7 @@ static void runCalibration()
                     Serial.println(F("Type SAVE or CANCEL."));
                 }
                 input = "";
-            } else {
+            } else if (input.length() < INPUT_MAX_LEN) {
                 input += c;
             }
         }
@@ -362,7 +367,7 @@ static void runDZ()
                 buf.trim();
                 return buf;
             }
-            buf += c;
+            if (buf.length() < INPUT_MAX_LEN) buf += c;
         }
     };
 
