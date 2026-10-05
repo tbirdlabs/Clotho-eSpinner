@@ -46,6 +46,12 @@ static const uint8_t  EEPROM_MAGIC_VAL     = 0xAB;  // value written when data i
 //  3999  →   500 Hz
 static const uint16_t PWM_TOP = 1999;
 
+// ── Calibration ──────────────────────────────────────────────────────────────
+// Minimum ADC span (of 1023) CAL will accept.  Rejects a SAVE made before the
+// pedal was swept, where ADC noise alone would yield a tiny range and turn the
+// pedal into an on/off switch.
+static const uint16_t CAL_MIN_RANGE = 100;
+
 // ── Runtime state ────────────────────────────────────────────────────────────
 static uint16_t calMin   = 0;
 static uint16_t calMax   = 1023;
@@ -288,9 +294,11 @@ static void runCalibration()
                 input.toUpperCase();
 
                 if (input == "SAVE") {
-                    if (obsMax <= obsMin) {
-                        // Pathological case: pedal never moved, or ADC noise only
-                        Serial.println(F("ERROR: range too narrow — keep sweeping before SAVE."));
+                    if (obsMax < obsMin + CAL_MIN_RANGE) {
+                        // Pedal never moved, or not swept through its full range
+                        Serial.print(F("ERROR: range too narrow (need "));
+                        Serial.print(CAL_MIN_RANGE);
+                        Serial.println(F("+ counts) — keep sweeping before SAVE."));
                     } else {
                         saveCalibration(obsMin, obsMax);
                         Serial.print(F("Saved — min="));
