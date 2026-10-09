@@ -14,7 +14,7 @@
  *   0-1  uint16  calibrated ADC minimum
  *   2-3  uint16  calibrated ADC maximum
  *   4    uint8   dead zone percentage at heel (bottom) end   (default 5)
- *   5    uint8   dead zone percentage at toe  (top)    end   (default 0)
+ *   5    uint8   dead zone percentage at toe  (top)    end   (default 3, in testing)
  *   6    uint8   magic byte (0xAB = all preceding values valid)
  */
 
@@ -61,7 +61,10 @@ static const uint8_t INPUT_MAX_LEN = 16;
 static uint16_t calMin   = 0;
 static uint16_t calMax   = 1023;
 static uint8_t  dzBottom = 5;   // heel-end dead zone, percent of travel
-static uint8_t  dzTop    = 0;   // toe-end  dead zone, percent of travel
+// The 3% toe default lets the pedal reach full speed without being pressed hard
+// against its stop.  Still in testing.  Pedals with saved settings keep theirs;
+// only a blank EEPROM picks this up.
+static uint8_t  dzTop    = 3;   // toe-end  dead zone, percent of travel
 static bool     armed    = false;  // motor enabled only after pedal seen at rest
 
 // ── Forward declarations ─────────────────────────────────────────────────────
@@ -192,8 +195,8 @@ static void loadSettings()
         calMin   = 0;
         calMax   = 1023;
         dzBottom = 5;
-        dzTop    = 0;
-        Serial.println(F("EEPROM blank — using defaults (min=0, max=1023, dzBottom=5%, dzTop=0%)."));
+        dzTop    = 3;
+        Serial.println(F("EEPROM blank — using defaults (min=0, max=1023, dzBottom=5%, dzTop=3%)."));
     }
 }
 
