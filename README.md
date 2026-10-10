@@ -41,8 +41,13 @@ Build notes and photos are on the Printables page linked above.
 - **Pot wiper:** A0
 - **PWM out:** pin 9 (Timer1 OC1A) to the BLD-510B speed input
 
-Full wiring: [docs/clotho_wiring_diagram.svg](docs/clotho_wiring_diagram.svg) (v10).
-The older diagram on Printables shows EN and F/R tied to +5V. That is wrong. Use this one.
+Full wiring (v11), in two versions:
+
+- With the foot pedal jack: [docs/clotho_wiring_diagram.svg](docs/clotho_wiring_diagram.svg)
+- Without it, with the speed pot wired straight to the driver:
+  [docs/clotho_wiring_diagram_no_pedal.svg](docs/clotho_wiring_diagram_no_pedal.svg)
+
+The older diagram on Printables shows EN and F/R tied to +5V. That is wrong. Use these.
 
 ![Clotho wiring diagram](docs/clotho_wiring_diagram.png)
 

@@ -1,4 +1,4 @@
-<svg width="100%" viewBox="0 0 680 1530" xmlns="http://www.w3.org/2000/svg" style="font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif; background: white;">
+<svg width="100%" viewBox="0 0 680 1205" xmlns="http://www.w3.org/2000/svg" style="font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif; background: white;">
 <style>
 text { fill: #2C2C2A; }
 text.th { font-size: 14px; font-weight: 500; }
@@ -7,8 +7,8 @@ text.tw { font-size: 10px; font-weight: 500; }
 text.tg { font-size: 10px; font-weight: 600; letter-spacing: 0.5px; }
 </style>
 
-<text class="th" x="340" y="28" text-anchor="middle">Clotho — wiring diagram v11, with foot pedal jack</text>
-<text class="ts" x="340" y="46" text-anchor="middle">BLD-510B + 57BSD76-24-01 + KCD4 switch + 10K pot + DC jack + foot pedal</text>
+<text class="th" x="340" y="28" text-anchor="middle">Clotho — wiring diagram v11, no foot pedal</text>
+<text class="ts" x="340" y="46" text-anchor="middle">BLD-510B + 57BSD76-24-01 + KCD4 switch + 10K pot + DC jack</text>
 
 <!-- ===== MOTOR (top center) ===== -->
 <rect x="155" y="68" width="370" height="160" rx="4" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1"/>
@@ -180,141 +180,57 @@ text.tg { font-size: 10px; font-weight: 600; letter-spacing: 0.5px; }
 <path d="M92 769 L120 769 L120 630 L198 630 L198 580" fill="none" stroke="#7F77DD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M163 773 L163 780 L230 780 L230 636 L268 636 L268 580" fill="none" stroke="#D4537E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 
-<!-- GND bus: switch, controller GND, pedal jack R -->
-<path d="M163 808 L163 816 L240 816 L240 656 L610 656 L610 692" fill="none" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<!-- GND bus: switch, controller GND, pot -->
+<path d="M163 808 L163 816 L240 816 L240 656 L478 656" fill="none" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M478 580 L478 656" fill="none" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <circle cx="478" cy="656" r="3" fill="#1C1C1C"/>
+<path d="M300 656 L300 692" fill="none" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="300" cy="656" r="3" fill="#1C1C1C"/>
 
-<!-- +5V to jack T -->
-<path d="M408 580 L408 675 L540 675 L540 692" fill="none" stroke="#DC2626" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<!-- SV to pot wiper -->
+<path d="M338 580 L338 692" fill="none" stroke="#15803D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 
-<!-- SV to jack S -->
-<path d="M338 580 L338 690 L490 690 L490 692" fill="none" stroke="#15803D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<!-- +5V to pot -->
+<path d="M408 580 L408 675 L378 675 L378 692" fill="none" stroke="#DC2626" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 
 <!-- ===== PANEL POT (bottom middle) ===== -->
 <rect x="255" y="700" width="170" height="170" rx="4" fill="#EAF3DE" stroke="#3B6D11" stroke-width="0.5"/>
-<circle cx="315" cy="775" r="28" fill="none" stroke="#5F5E5A" stroke-width="1.5"/>
-<circle cx="315" cy="775" r="21" fill="none" stroke="#5F5E5A" stroke-width="0.5"/>
-<circle cx="315" cy="775" r="5" fill="#5F5E5A" opacity="0.5"/>
-<line x1="315" y1="770" x2="315" y2="756" stroke="#5F5E5A" stroke-width="2.5" stroke-linecap="round"/>
-<text class="tw" x="315" y="792" text-anchor="middle">10K</text>
-<rect x="395" y="736" width="14" height="8" rx="1" fill="#5F5E5A"/>
-<rect x="395" y="766" width="14" height="8" rx="1" fill="#5F5E5A"/>
-<rect x="395" y="796" width="14" height="8" rx="1" fill="#5F5E5A"/>
-<text class="tw" x="389" y="744" text-anchor="end">right</text>
-<text class="tw" x="389" y="774" text-anchor="end">middle</text>
-<text class="tw" x="389" y="804" text-anchor="end">left</text>
+<rect x="293" y="692" width="14" height="8" rx="1" fill="#5F5E5A"/>
+<rect x="331" y="692" width="14" height="8" rx="1" fill="#5F5E5A"/>
+<rect x="371" y="692" width="14" height="8" rx="1" fill="#5F5E5A"/>
+<text class="tw" x="300" y="716" text-anchor="middle">left</text>
+<text class="tw" x="338" y="716" text-anchor="middle">middle</text>
+<text class="tw" x="378" y="716" text-anchor="middle">right</text>
+<circle cx="340" cy="772" r="28" fill="none" stroke="#5F5E5A" stroke-width="1.5"/>
+<circle cx="340" cy="772" r="21" fill="none" stroke="#5F5E5A" stroke-width="0.5"/>
+<circle cx="340" cy="772" r="5" fill="#5F5E5A" opacity="0.5"/>
+<line x1="340" y1="767" x2="340" y2="753" stroke="#5F5E5A" stroke-width="2.5" stroke-linecap="round"/>
+<text class="tw" x="340" y="789" text-anchor="middle">10K</text>
 <text class="tw" x="340" y="838" text-anchor="middle">Shaft toward you, pins down</text>
 <text class="th" x="340" y="860" text-anchor="middle">Panel speed pot</text>
 
-<!-- All three pot leads go through the jack's switch contacts -->
-<path d="M409 740 L442 740" fill="none" stroke="#DC2626" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M409 770 L442 770" fill="none" stroke="#15803D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M409 800 L442 800" fill="none" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-
-<!-- ===== PEDAL JACK ON SPINNER (bottom right) ===== -->
-<rect x="450" y="700" width="210" height="170" rx="4" fill="#FCF1E3" stroke="#B45309" stroke-width="0.5"/>
-<rect x="483" y="692" width="14" height="8" rx="1" fill="#5F5E5A"/>
-<rect x="533" y="692" width="14" height="8" rx="1" fill="#5F5E5A"/>
-<rect x="603" y="692" width="14" height="8" rx="1" fill="#5F5E5A"/>
-<rect x="442" y="736" width="8" height="8" rx="1" fill="#5F5E5A"/>
-<rect x="442" y="766" width="8" height="8" rx="1" fill="#5F5E5A"/>
-<rect x="442" y="796" width="8" height="8" rx="1" fill="#5F5E5A"/>
-<text class="tw" x="490" y="716" text-anchor="middle">S</text>
-<text class="tw" x="540" y="716" text-anchor="middle">T</text>
-<text class="tw" x="610" y="716" text-anchor="middle">R</text>
-<text class="tw" x="456" y="744">TN</text>
-<text class="tw" x="456" y="774">SN</text>
-<text class="tw" x="456" y="804">RN</text>
-<text class="th" x="570" y="768" text-anchor="middle">Pedal jack</text>
-<text class="ts" x="570" y="785" text-anchor="middle">¼&quot; TRS, 6-lug switched</text>
-<text class="ts" x="570" y="812" text-anchor="middle">TN, SN, RN closed to T, S, R</text>
-<text class="ts" x="570" y="828" text-anchor="middle">All three open when a plug is in</text>
-
-<!-- Cable -->
-<line x1="630" y1="878" x2="630" y2="957" stroke="#5F5E5A" stroke-width="5" stroke-linecap="round"/>
-<text class="ts" x="620" y="925" text-anchor="end">¼&quot; TRS cable</text>
-
-<!-- ===== FOOT PEDAL (separate enclosure) ===== -->
-<rect x="20" y="940" width="640" height="195" rx="6" fill="none" stroke="#B4B2A9" stroke-width="0.75" stroke-dasharray="5 4"/>
-<text class="ts" x="340" y="1127" text-anchor="middle">Foot pedal (optional, separate enclosure)</text>
-
-<!-- Pedal pot -->
-<rect x="40" y="965" width="150" height="130" rx="4" fill="#EAF3DE" stroke="#3B6D11" stroke-width="0.5"/>
-<circle cx="100" cy="1022" r="26" fill="none" stroke="#5F5E5A" stroke-width="1.5"/>
-<circle cx="100" cy="1022" r="5" fill="#5F5E5A" opacity="0.5"/>
-<line x1="100" y1="1017" x2="100" y2="1003" stroke="#5F5E5A" stroke-width="2.5" stroke-linecap="round"/>
-<text class="tw" x="100" y="1038" text-anchor="middle">10K</text>
-<rect x="166" y="981" width="14" height="8" rx="1" fill="#5F5E5A"/>
-<rect x="166" y="1006" width="14" height="8" rx="1" fill="#5F5E5A"/>
-<rect x="166" y="1031" width="14" height="8" rx="1" fill="#5F5E5A"/>
-<text class="tw" x="161" y="989" text-anchor="end">right</text>
-<text class="tw" x="161" y="1014" text-anchor="end">middle</text>
-<text class="tw" x="161" y="1039" text-anchor="end">left</text>
-<text class="tw" x="115" y="1064" text-anchor="middle">Shaft toward you, pins down</text>
-<text class="th" x="115" y="1082" text-anchor="middle">Pedal pot</text>
-
-<!-- Pro Micro -->
-<rect x="250" y="965" width="180" height="130" rx="4" fill="#E6F0FA" stroke="#1E5A96" stroke-width="0.5"/>
-<rect x="242" y="1006" width="8" height="8" rx="1" fill="#5F5E5A"/>
-<rect x="430" y="976" width="8" height="8" rx="1" fill="#5F5E5A"/>
-<rect x="430" y="1006" width="8" height="8" rx="1" fill="#5F5E5A"/>
-<rect x="430" y="1036" width="8" height="8" rx="1" fill="#5F5E5A"/>
-<text class="tw" x="258" y="1014">A0</text>
-<text class="tw" x="424" y="984" text-anchor="end">VCC</text>
-<text class="tw" x="424" y="1014" text-anchor="end">9 (PWM)</text>
-<text class="tw" x="424" y="1044" text-anchor="end">GND</text>
-<text class="th" x="335" y="1068" text-anchor="middle">Pro Micro 5V</text>
-<text class="ts" x="335" y="1084" text-anchor="middle">ATmega32U4</text>
-
-<!-- Pedal jack -->
-<rect x="470" y="965" width="190" height="130" rx="4" fill="#FCF1E3" stroke="#B45309" stroke-width="0.5"/>
-<rect x="462" y="976" width="8" height="8" rx="1" fill="#5F5E5A"/>
-<rect x="462" y="1006" width="8" height="8" rx="1" fill="#5F5E5A"/>
-<rect x="462" y="1036" width="8" height="8" rx="1" fill="#5F5E5A"/>
-<text class="tw" x="478" y="984">T</text>
-<text class="tw" x="478" y="1014">S</text>
-<text class="tw" x="478" y="1044">R</text>
-<text class="th" x="570" y="1026" text-anchor="middle">Pedal jack</text>
-<text class="ts" x="570" y="1043" text-anchor="middle">¼&quot; TRS</text>
-
-<!-- Pedal wiring -->
-<path d="M438 980 L462 980" fill="none" stroke="#DC2626" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M438 1010 L462 1010" fill="none" stroke="#15803D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M438 1040 L462 1040" fill="none" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M180 985 L200 985 L200 952 L450 952 L450 980" fill="none" stroke="#DC2626" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M180 1010 L242 1010" fill="none" stroke="#15803D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M180 1035 L200 1035 L200 1105 L450 1105 L450 1040" fill="none" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<circle cx="450" cy="980" r="3" fill="#1C1C1C"/>
-<circle cx="450" cy="1040" r="3" fill="#1C1C1C"/>
-
 <!-- ===== DIRECTION REFERENCE ===== -->
-<rect x="20" y="1160" width="640" height="155" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
-<text class="th" x="340" y="1188" text-anchor="middle">Switch positions and spin direction</text>
-<text class="th" x="40" y="1215">S twist</text>
-<text class="ts" x="120" y="1215">Switch one way → EN to GND (run), F/R open → clockwise</text>
-<text class="th" x="40" y="1238">OFF</text>
-<text class="ts" x="120" y="1238">Switch center → EN open → motor coasts to a stop (also clears an alarm)</text>
-<text class="th" x="40" y="1261">Z twist</text>
-<text class="ts" x="120" y="1261">Switch other way → EN and F/R to GND → counterclockwise</text>
-<text class="ts" x="340" y="1285" text-anchor="middle">Pause in the center until the flyer stops before reversing.</text>
-<text class="ts" x="340" y="1303" text-anchor="middle">If S and Z are backwards, pop the switch out and flip it — the mount is symmetrical.</text>
-
-<!-- ===== PEDAL NOTE ===== -->
-<rect x="20" y="1325" width="640" height="50" rx="6" fill="#FCF1E3" stroke="#B45309" stroke-width="0.5"/>
-<text class="ts" x="340" y="1345" text-anchor="middle" fill="#7C3A0A">Pedal plugged in → panel pot fully disconnected, pedal PWM drives SV. Unplugged → panel pot works.</text>
-<text class="ts" x="340" y="1361" text-anchor="middle" fill="#7C3A0A">Plug or unplug with the switch centered. Both jacks wired the same: T = +5V, R = GND, S = signal.</text>
+<rect x="20" y="895" width="640" height="155" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+<text class="th" x="340" y="923" text-anchor="middle">Switch positions and spin direction</text>
+<text class="th" x="40" y="950">S twist</text>
+<text class="ts" x="120" y="950">Switch one way → EN to GND (run), F/R open → clockwise</text>
+<text class="th" x="40" y="973">OFF</text>
+<text class="ts" x="120" y="973">Switch center → EN open → motor coasts to a stop (also clears an alarm)</text>
+<text class="th" x="40" y="996">Z twist</text>
+<text class="ts" x="120" y="996">Switch other way → EN and F/R to GND → counterclockwise</text>
+<text class="ts" x="340" y="1020" text-anchor="middle">Pause in the center until the flyer stops before reversing.</text>
+<text class="ts" x="340" y="1038" text-anchor="middle">If S and Z are backwards, pop the switch out and flip it — the mount is symmetrical.</text>
 
 <!-- ===== WIRE COLOR WARNING ===== -->
-<rect x="20" y="1385" width="640" height="50" rx="6" fill="#FEF9E7" stroke="#AE8B00" stroke-width="0.5"/>
-<text class="ts" x="340" y="1405" text-anchor="middle" fill="#7A6200">⚠  Phase wires and hall wires are both Yellow / Green / Blue.</text>
-<text class="ts" x="340" y="1421" text-anchor="middle" fill="#7A6200">Phase leads are thick (20 AWG). Hall leads are thin (26 AWG). Don't mix them up.</text>
+<rect x="20" y="1060" width="640" height="50" rx="6" fill="#FEF9E7" stroke="#AE8B00" stroke-width="0.5"/>
+<text class="ts" x="340" y="1080" text-anchor="middle" fill="#7A6200">⚠  Phase wires and hall wires are both Yellow / Green / Blue.</text>
+<text class="ts" x="340" y="1096" text-anchor="middle" fill="#7A6200">Phase leads are thick (20 AWG). Hall leads are thin (26 AWG). Don't mix them up.</text>
 
 <!-- ===== DRIVER VERSION NOTE ===== -->
-<rect x="20" y="1445" width="640" height="50" rx="6" fill="#FAECE7" stroke="#993C1D" stroke-width="0.5"/>
-<text class="ts" x="340" y="1465" text-anchor="middle" fill="#7A2E14">Drawn for BLD-510B V2.0, where EN to GND = run. V2.4 inverts EN (runs when open).</text>
-<text class="ts" x="340" y="1481" text-anchor="middle" fill="#7A2E14">If the motor runs with the switch centered, you have V2.4. See manual section 4.3.</text>
+<rect x="20" y="1120" width="640" height="50" rx="6" fill="#FAECE7" stroke="#993C1D" stroke-width="0.5"/>
+<text class="ts" x="340" y="1140" text-anchor="middle" fill="#7A2E14">Drawn for BLD-510B V2.0, where EN to GND = run. V2.4 inverts EN (runs when open).</text>
+<text class="ts" x="340" y="1156" text-anchor="middle" fill="#7A2E14">If the motor runs with the switch centered, you have V2.4. See manual section 4.3.</text>
 
-<text class="ts" x="340" y="1517" text-anchor="middle">Dots mark connections. Wires that cross without a dot are not connected.</text>
+<text class="ts" x="340" y="1192" text-anchor="middle">Dots mark connections. Wires that cross without a dot are not connected.</text>
 
 </svg>
